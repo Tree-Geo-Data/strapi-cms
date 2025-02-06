@@ -24,11 +24,12 @@
     },
     {
       "name": "setup",
-      "icon": "settings",
+      "icon": "settings-gear",
       "color": "terminal.ansiYellow",
       "description": "For running first time setup of the project",
       "execute": true,
       "focus": false,
+      "onlySingle": true,
       "commands": [
         "echo \"Running first time setup for [workspaceFolder]\"",
         "pnpm setup"
