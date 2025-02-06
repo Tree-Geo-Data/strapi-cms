@@ -6,10 +6,11 @@
   "scripts": {
     "build": "strapi build",
     "deploy": "strapi deploy",
-    "develop": "strapi develop",
+    "dev": "strapi develop",
     "seed:example": "node ./scripts/seed.js",
     "start": "strapi start",
-    "strapi": "strapi"
+    "setup": "npm install && npm run build",
+    "_comment": "echo \"TODO: HAVE TO CHANGE PROJECT SETUP FROM NPM TO PNPM. WILL PROBABLY REQUIRE SETUP FROM SCRATCH.\""
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.8.1",

@@ -1,0 +1,38 @@
+{
+  "autorun": true,
+  "terminals": [
+    {
+      "name": "git",
+      "icon": "logo-github",
+      "color": "terminal.ansiBlue",
+      "description": "For handling git commands",
+      "focus": true,
+      "execute": true,
+      "command": "git status"
+    },
+    {
+      "name": "dev",
+      "icon": "vm",
+      "color": "terminal.ansiGreen",
+      "description": "For running the dev instance",
+      "execute": true,
+      "focus": false,
+      "commands": [
+        "echo \"Running dev instance for [workspaceFolder]\"",
+        "pnpm dev"
+      ]
+    },
+    {
+      "name": "setup",
+      "icon": "settings",
+      "color": "terminal.ansiYellow",
+      "description": "For running first time setup of the project",
+      "execute": true,
+      "focus": false,
+      "commands": [
+        "echo \"Running first time setup for [workspaceFolder]\"",
+        "pnpm setup"
+      ]
+    }
+  ]
+}
