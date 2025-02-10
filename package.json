@@ -10,7 +10,8 @@
     "seed:example": "node ./scripts/seed.js",
     "start": "strapi start",
     "setup": "npm install && npm run build",
-    "_comment": "echo \"TODO: HAVE TO CHANGE PROJECT SETUP FROM NPM TO PNPM. WILL PROBABLY REQUIRE SETUP FROM SCRATCH.\""
+    "_comment": "echo \"TODO: HAVE TO CHANGE PROJECT SETUP FROM NPM TO PNPM. WILL PROBABLY REQUIRE SETUP FROM SCRATCH.\"",
+    "_comment2": "echo \"TODO: Set Node version to 20.x.x instead of range specified under engines.\""
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.8.1",
