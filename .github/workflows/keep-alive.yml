@@ -1,0 +1,36 @@
+name: Keep Alive
+on:
+  schedule:
+    - cron: '*/10 * * * *'  # Runs every 10 minutes
+  workflow_dispatch:  # Allows manual triggering
+  push:
+    branches: [ main ]  # Also runs on pushes to main, keeping the repo active
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Strapi Instance
+        id: ping
+        run: |
+          response=$(curl -s -w "\n%{http_code}" https://https://strapi-cms-ytnc.onrender.com/api/healthcheck)
+          http_code=$(echo "$response" | tail -n1)
+          body=$(echo "$response" | sed '$d')
+          
+          echo "Status code: $http_code"
+          echo "Response body: $body"
+          
+          if [ "$http_code" -ne 200 ]; then
+            echo "::error::Failed to ping Strapi instance. Status code: $http_code"
+            exit 1
+          fi
+      
+      - name: Log Time
+        run: echo "Ping successful at $(date)"
+
+      - name: Notify on Failure
+        if: failure()
+        run: |
+          echo "Ping failed at $(date)"
+          # You could add additional notification steps here
+          # Like sending an email or a Discord webhook
