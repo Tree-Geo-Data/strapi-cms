@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_ck_editor_rich_text_html_s",
+  "info": {
+    "displayName": "CK Editor Rich Text (HTML)"
+  },
+  "options": {},
+  "attributes": {
+    "body": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

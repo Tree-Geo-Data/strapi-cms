@@ -1,5 +1,37 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedCkEditorRichTextHtml extends Struct.ComponentSchema {
+  collectionName: 'components_shared_ck_editor_rich_text_html_s';
+  info: {
+    displayName: 'CK Editor Rich Text (HTML)';
+  };
+  attributes: {
+    body: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
+export interface SharedCkEditorRichTextMarkdown extends Struct.ComponentSchema {
+  collectionName: 'components_shared_ck_editor_rich_text_markdown_s';
+  info: {
+    displayName: 'CK Editor Rich Text (Markdown)';
+  };
+  attributes: {
+    body: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultMarkdown';
+        }
+      >;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -65,6 +97,8 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.ck-editor-rich-text-html': SharedCkEditorRichTextHtml;
+      'shared.ck-editor-rich-text-markdown': SharedCkEditorRichTextMarkdown;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
